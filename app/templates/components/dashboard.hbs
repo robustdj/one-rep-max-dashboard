@@ -30,12 +30,12 @@
   <div class="column column-content">
     <nav class="navbar has-background-orange" role="navigation" aria-label="main navigation">
       <div class="container is-flex-touch is-relative">
-        <a role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" {{on "click" this.toggleMenu}}>
+        <a role="button" class="navbar-burger has-text-white {{if this.menuVisible 'is-active'}}" aria-label="menu" aria-expanded="false" {{on "click" this.toggleMenu}}>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-mobile'}}">
+        <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-xs-mobile'}}">
           Barbell Bench Press
         </p>
       </div>

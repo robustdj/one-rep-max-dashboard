@@ -14,7 +14,7 @@ html, body {
 .column-menu {
   width: 300px;
 
-  @media only screen and (max-width: 1023px) {
+  @media only screen and (max-width: $desktop - 1) {
     margin-left: -300px;
     transition: margin-left .4s ease-in-out;
 
@@ -31,6 +31,10 @@ html, body {
     position: absolute;
     left: 20px;
     z-index: 2;
+
+    &.is-active {
+      left: 0;
+    }
   }
 
   .navbar-item {
@@ -66,4 +70,11 @@ html, body {
 .menu-exercise-item {
   border-bottom: 2px solid $grey-dark;
   padding: 1.5rem .5rem;
+}
+
+
+@media only screen and (max-width: 576px) {
+  .is-hidden-xs-mobile {
+    display: none !important;
+  }
 }
