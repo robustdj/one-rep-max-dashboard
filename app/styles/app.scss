@@ -1,0 +1,48 @@
+@import "./bulma-overrides.scss";
+@import "ember-bulma-css/utilities/_all";
+@import "ember-bulma-css/base/_all";
+@import "ember-bulma-css/elements/_all";
+@import "ember-bulma-css/form/_all";
+@import "ember-bulma-css/components/_all";
+@import "ember-bulma-css/grid/_all";
+@import "ember-bulma-css/layout/_all";
+
+html, body {
+  overflow: hidden;
+}
+
+.has-background-orange {
+  background-color: $orange !important;
+}
+
+.is-fullheight {
+  min-height: calc(100vh + 1rem);
+}
+
+.is-paddingless-side {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.is-flex-centered {
+  justify-content: center;
+}
+
+.menu-exercise {
+  display: flex;
+  flex-direction: column;
+
+  .section {
+    flex-grow: 1;
+    padding-top: 1.5rem;
+  }
+
+  .image {
+    padding: 0 3rem 3rem;
+  }
+}
+
+.menu-exercise-item {
+  border-bottom: 2px solid $grey-dark;
+  padding: 1.5rem .5rem;
+}
