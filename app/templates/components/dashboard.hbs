@@ -1,0 +1,46 @@
+<div class="columns is-mobile">
+  <nav class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
+    <aside class="menu menu-exercise has-background-grey-darker is-fullheight">
+      <div class="section">
+        <p class="menu-label is-uppercase has-text-centered has-text-grey-light">Your Exercises</p>
+        <div class="level is-mobile menu-exercise-item">
+          <div class="level-left">
+            <div class="level-item has-text-white">
+              <div>
+                <p class="is-size-6 has-text-weight-semibold">Barbell Bench Press</p>
+                <p class="is-size-7 has-text-grey-light">1 RM Record</p>
+              </div>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item has-text-white">
+              <div>
+                <p class="is-size-7 has-text-weight-semibold">215.10</p>
+                <p class="is-size-7 has-text-grey-light has-text-right">lbs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <figure class="image">
+        <img src="/images/fitbod-logo.png" alt="image">
+      </figure>
+    </aside>
+  </nav>
+  <div class="column column-content">
+    <nav class="navbar has-background-orange" role="navigation" aria-label="main navigation">
+      <div class="container is-flex-touch is-relative">
+        <a role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" {{on "click" this.toggleMenu}}>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+        <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-mobile'}}">
+          Barbell Bench Press
+        </p>
+      </div>
+    </nav>
+    <div class="section has-background-black-ter is-fullheight">
+    </div>
+  </div>
+</div>

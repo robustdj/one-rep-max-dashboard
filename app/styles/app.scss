@@ -11,21 +11,42 @@ html, body {
   overflow: hidden;
 }
 
+.column-menu {
+  width: 300px;
+
+  @media only screen and (max-width: 1023px) {
+    margin-left: -300px;
+    transition: margin-left .4s ease-in-out;
+
+    &.is-active {
+      margin-left: 0;
+    }
+  }
+}
+
+.column-content {
+  margin-left: -1.5rem;
+
+  .navbar-burger {
+    position: absolute;
+    left: 20px;
+    z-index: 2;
+  }
+
+  .navbar-item {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+}
+
 .has-background-orange {
   background-color: $orange !important;
 }
 
 .is-fullheight {
   min-height: calc(100vh + 1rem);
-}
-
-.is-paddingless-side {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.is-flex-centered {
-  justify-content: center;
 }
 
 .menu-exercise {
@@ -38,7 +59,7 @@ html, body {
   }
 
   .image {
-    padding: 0 3rem 3rem;
+    padding: 0 4rem 3rem;
   }
 }
 
