@@ -4,7 +4,7 @@
       <div class="section">
         <p class="menu-label is-uppercase has-text-centered has-text-grey-light">Your Exercises</p>
         {{#each @exercises as |exercise|}}
-          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn (mut this.currentExercise) exercise)}}>
+          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn (mut this.currentExercise) exercise)}} data-test-exercise-menu-item>
             <div class="level-left">
               <div class="level-item has-text-white">
                 <div>
