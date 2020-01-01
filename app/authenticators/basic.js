@@ -24,5 +24,6 @@ export default class BasicAuth extends Base {
   }
 
   invalidate(data) {
+    return Promise.resolve();
   }
 }

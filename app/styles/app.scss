@@ -6,6 +6,7 @@
 @import "ember-bulma-css/components/_all";
 @import "ember-bulma-css/grid/_all";
 @import "ember-bulma-css/layout/_all";
+@import "./spacing.scss";
 
 html, body {
   overflow: hidden;
@@ -35,6 +36,10 @@ html, body {
     &.is-active {
       left: 0;
     }
+
+    span {
+      height: 2px;
+    }
   }
 
   .navbar-item {
@@ -43,10 +48,6 @@ html, body {
     justify-content: center;
     flex-grow: 1;
   }
-}
-
-.has-background-orange {
-  background-color: $orange !important;
 }
 
 .is-fullheight {
@@ -71,7 +72,6 @@ html, body {
   border-bottom: 2px solid $grey-dark;
   padding: 1.5rem .5rem;
 }
-
 
 @media only screen and (max-width: 576px) {
   .is-hidden-xs-mobile {
