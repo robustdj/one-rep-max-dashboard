@@ -1,0 +1,29 @@
+<div class="section container">
+  <div class="box">
+    {{#if this.errorMessage}}
+      <div class="notification is-danger">
+        {{this.errorMessage}}
+      </div>
+    {{/if}}
+    <div class="field">
+      <label class="label">Email</label>
+      <div class="control">
+        <Input @value={{email}} class="input" placeholder="Enter email" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Password</label>
+      <div class="control">
+        <Input @value={{password}} type="password" class="input" placeholder="Enter password" />
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button {{on "click" this.authenticate}} type="submit" class="button is-link">Login</button>
+      </div>
+    </div>
+  </div>
+
+</div>
