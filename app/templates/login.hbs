@@ -6,27 +6,27 @@
           <h3 class="is-size-3 has-text-centered p-t-md">One Rep Max Dashboard</h3>
           <div class="section">
             {{#if this.errorMessage}}
-              <div class="notification is-danger">
+              <div class="notification is-danger" data-test-error-message>
                 {{this.errorMessage}}
               </div>
             {{/if}}
             <div class="field">
               <label class="label">Email</label>
               <div class="control">
-                <Input @value={{email}} class="input is-medium" placeholder="Enter email" />
+                <Input @value={{this.email}} class="input is-medium" placeholder="Enter email" data-test-email />
               </div>
             </div>
 
             <div class="field">
               <label class="label">Password</label>
               <div class="control">
-                <Input @value={{password}} type="password" class="input is-medium" placeholder="Enter password" />
+                <Input @value={{this.password}} type="password" class="input is-medium" placeholder="Enter password" data-test-password />
               </div>
             </div>
 
             <div class="field m-t-lg">
               <div class="control has-text-right">
-                <button {{on "click" this.authenticate}} type="submit" class="button is-primary is-medium is-fullwidth">Sign In</button>
+                <button {{on "click" this.authenticate}} type="submit" class="button is-primary is-medium is-fullwidth" data-test-submit>Sign In</button>
               </div>
             </div>
           </div>

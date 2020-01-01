@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 export default class Dashboard extends Component {
   @service session
   @tracked menuVisible = false
+  @tracked currentExercise
 
   @action
   toggleMenu() {

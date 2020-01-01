@@ -54,6 +54,10 @@ html, body {
   min-height: calc(100vh + 1rem);
 }
 
+.is-clickable {
+  cursor: pointer;
+}
+
 .menu-exercise {
   display: flex;
   flex-direction: column;
