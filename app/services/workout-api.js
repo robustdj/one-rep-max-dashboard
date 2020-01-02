@@ -8,6 +8,10 @@ export default class WorkoutApiService extends Service {
     this.encodedCredentials = encodedCredentials
   }
 
+  setCurrentUser(user) {
+    this.currentUser = user
+  }
+
   async getUser(email) {
     let response = await this._apiGet('users')
 
@@ -17,11 +21,35 @@ export default class WorkoutApiService extends Service {
 
     let json = await response.json()
     let [ user ] = json.filterBy('email', email)
+    this.setCurrentUser(user)
+
     return user
   }
 
   async getExercises() {
-    return this._apiGet('exercises')
+    let response = await this._apiGet('exercises')
+    this.exercises = await response.json()
+    return this.exercises
+  }
+
+  async getUserWorkouts() {
+    let { id } = this.currentUser
+    let response = await this._apiGet(`users/${id}/workouts`)
+    return response.json()
+  }
+
+  async getUserSingleSets() {
+    let workouts = await this.getUserWorkouts()
+    let singleSets = []
+
+    for (const workout of workouts) {
+      console.log(`making API call to: users/${this.currentUser.id}/workouts/${workout.id}/single_sets`)
+      let response = await this._apiGet(`users/${this.currentUser.id}/workouts/${workout.id}/single_sets`)
+      let json = await response.json()
+      singleSets.push(...json)
+    }
+
+    return singleSets
   }
 
   _apiHeaders() {
@@ -31,7 +59,7 @@ export default class WorkoutApiService extends Service {
     }
   }
 
-  _apiGet(endpoint) {
+  async _apiGet(endpoint) {
     return fetch(`${BASE_URL}/${endpoint}.json`, { headers: this._apiHeaders() })
   }
 }

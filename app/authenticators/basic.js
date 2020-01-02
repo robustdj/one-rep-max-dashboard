@@ -10,6 +10,7 @@ export default class BasicAuth extends Base {
   restore(data) {
     if (get(data.user, 'id')) {
       this.workoutApi.setEncodedCredentials(data.encodedCredentials)
+      this.workoutApi.setCurrentUser(data.user)
       return Promise.resolve(data)
     } else {
       return Promise.reject()

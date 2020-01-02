@@ -66,4 +66,42 @@ export default function() {
       }
     ]
   })
+
+  this.get('/users/:user_id/workouts.json', () => {
+    return [
+      {
+          "id": 43,
+          "user_id": 1,
+          "workout_date": "2018-06-19T00:00:00.000Z",
+          "workout_duration": 86,
+          "created_at": "2019-12-31T22:34:01.957Z",
+          "updated_at": "2019-12-31T22:34:01.957Z"
+      }
+    ]
+  });
+
+  this.get('/users/:user_id/workouts/:workout_id/single_sets.json', () => {
+    return [
+      {
+          "id": 1683,
+          "weight": 215.0,
+          "reps": 3,
+          "performed_at": "2018-06-19T11:13:51.727Z",
+          "workout_id": 43,
+          "created_at": "2019-12-31T22:34:06.281Z",
+          "updated_at": "2019-12-31T22:34:06.281Z",
+          "exercise_id": 2
+      },
+      {
+          "id": 1682,
+          "weight": 215.0,
+          "reps": 3,
+          "performed_at": "2018-06-19T11:11:51.727Z",
+          "workout_id": 43,
+          "created_at": "2019-12-31T22:34:06.279Z",
+          "updated_at": "2019-12-31T22:34:06.279Z",
+          "exercise_id": 2
+      }
+    ]
+  });
 }

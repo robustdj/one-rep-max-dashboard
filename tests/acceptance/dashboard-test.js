@@ -22,7 +22,7 @@ module('Acceptance | dashboard', function(hooks) {
   test('shows exercises in the menu', async function(assert) {
     // TODO assert that exercises have 1RM records
 
-    await login()
+    await login(this)
     await visit('/')
 
     assert.dom('[data-test-exercise-menu-item]').exists({ count: 3 })

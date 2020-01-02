@@ -1,10 +1,10 @@
-<div class="columns is-mobile">
+<div class="columns is-mobile" {{did-insert this.getSingleSets}}>
   <nav class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
     <aside class="menu menu-exercise has-background-grey-darker is-fullheight">
       <div class="section">
         <p class="menu-label is-uppercase has-text-centered has-text-grey-light">Your Exercises</p>
         {{#each @exercises as |exercise|}}
-          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn (mut this.currentExercise) exercise)}} data-test-exercise-menu-item>
+          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn this.selectExercise exercise)}} data-test-exercise-menu-item>
             <div class="level-left">
               <div class="level-item has-text-white">
                 <div>
@@ -45,7 +45,25 @@
         </p>
       </div>
     </nav>
-    <div class="section has-background-black-ter is-fullheight">
+    <div class="section has-background-black-ter is-fullheight p-xl">
+      <div class="level is-mobile p-l-md p-r-md">
+        <div class="level-left">
+          <div class="level-item">
+            <div class="content">
+              <h3 class="has-text-white has-text-weight-semibold is-marginless">One Rep Max</h3>
+              <p class="has-text-grey-light">Theoretical upper limit</p>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <div class="content">
+              <h3 class="has-text-white has-text-weight-semibold is-marginless">215.10</h3>
+              <p class="has-text-grey-light has-text-right">lbs</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
