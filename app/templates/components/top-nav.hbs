@@ -1,0 +1,12 @@
+<nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
+  <div class="container is-flex-touch is-relative">
+    <a role="button" class="navbar-burger has-text-white {{if @menuVisible 'is-active'}}" aria-label="menu" aria-expanded="false" {{on "click" @toggleMenu}} data-test-burger-menu>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    <p class="navbar-item has-text-white has-text-weight-semibold {{if @menuVisible 'is-hidden-xs-mobile'}}" data-test-top-nav-selected-exercise>
+      {{@selectedExercise.name}}
+    </p>
+  </div>
+</nav>

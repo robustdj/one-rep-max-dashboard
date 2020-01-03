@@ -1,0 +1,18 @@
+<div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn @selectExercise @exercise)}} data-test-exercise-menu-item={{@exercise.name}}>
+  <div class="level-left">
+    <div class="level-item has-text-white">
+      <div>
+        <p class="is-size-6 has-text-weight-semibold">{{@exercise.name}}</p>
+        <p class="is-size-7 has-text-grey-light">1 RM Record</p>
+      </div>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="level-item has-text-white">
+      <div>
+        <p class="is-size-7 has-text-weight-semibold" data-test-1rm-record>{{@exercise.highestOneRepMax}}</p>
+        <p class="is-size-7 has-text-grey-light has-text-right">lbs</p>
+      </div>
+    </div>
+  </div>
+</div>

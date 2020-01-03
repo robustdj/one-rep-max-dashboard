@@ -1,74 +1,18 @@
 <div class="columns is-mobile" {{did-insert this.selectFirstExercise}}>
-  <nav class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
-    <aside class="menu menu-exercise has-background-grey-darker is-fullheight">
-      <div class="section">
-        <p class="menu-label is-uppercase has-text-centered has-text-grey-light">Your Exercises</p>
-        {{#each @exercises as |exercise|}}
-          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn this.selectExercise exercise)}} data-test-exercise-menu-item={{exercise.name}}>
-            <div class="level-left">
-              <div class="level-item has-text-white">
-                <div>
-                  <p class="is-size-6 has-text-weight-semibold">{{exercise.name}}</p>
-                  <p class="is-size-7 has-text-grey-light">1 RM Record</p>
-                </div>
-              </div>
-            </div>
-            <div class="level-right">
-              <div class="level-item has-text-white">
-                <div>
-                  <p class="is-size-7 has-text-weight-semibold" data-test-1rm-record>{{exercise.highestOneRepMax}}</p>
-                  <p class="is-size-7 has-text-grey-light has-text-right">lbs</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        {{/each}}
-        <div class="has-text-centered m-t-md">
-          <button class="button is-small is-light is-outlined is-fullwidth" {{on "click" this.logout}} data-test-logout>Logout</button>
-        </div>
-      </div>
-      <figure class="image">
-        <img src="/images/fitbod-logo.png" alt="fitbod logo" />
-      </figure>
-    </aside>
-  </nav>
-  <div class="column column-content" data-test-main-content-area>
-    <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
-      <div class="container is-flex-touch is-relative">
-        <a role="button" class="navbar-burger has-text-white {{if this.menuVisible 'is-active'}}" aria-label="menu" aria-expanded="false" {{on "click" this.toggleMenu}} data-test-burger-menu>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-        <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-xs-mobile'}}" data-test-top-nav-selected-exercise>
-          {{this.selectedExercise.name}}
-        </p>
-      </div>
-    </nav>
+  <section class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
+    <LeftNav @exercises={{@exercises}} @selectExercise={{this.selectExercise}} />
+  </section>
+  <section class="column column-content" data-test-main-content-area>
+    <TopNav @menuVisible={{this.menuVisible}} @toggleMenu={{this.toggleMenu}} @selectedExercise={{this.selectedExercise}} />
+
     <div class="section has-background-black-ter is-fullheight p-xl">
       {{#if this.selectedExercise}}
-        <div class="level is-mobile p-l-md p-r-md">
-          <div class="level-left">
-            <div class="level-item">
-              <div class="content">
-                <h3 class="has-text-white has-text-weight-semibold is-marginless">One Rep Max</h3>
-                <p class="has-text-grey-light">Theoretical upper limit</p>
-              </div>
-            </div>
-          </div>
-          <div class="level-right">
-            <div class="level-item">
-              <div class="content">
-                <h3 class="has-text-white has-text-weight-semibold is-marginless" data-test-1rm-record>{{this.selectedExercise.highestOneRepMax}}</h3>
-                <p class="has-text-grey-light has-text-right">lbs</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <OneRepMaxHeader @highestOneRepMax={{this.selectedExercise.highestOneRepMax}} />
+
         {{#if this.chartData}}
           <OneRepMaxChart @content={{this.chartData}} @title="1RM Daily Chart" data-test-1rm-chart />
         {{/if}}
       {{/if}}
     </div>
-  </div>
+  </section>
 </div>

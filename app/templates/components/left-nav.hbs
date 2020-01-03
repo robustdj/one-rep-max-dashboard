@@ -1,0 +1,14 @@
+<aside class="menu menu-exercise has-background-grey-darker is-fullheight">
+  <div class="section">
+    <p class="menu-label is-uppercase has-text-centered has-text-grey-light">Your Exercises</p>
+    {{#each @exercises as |exercise|}}
+      <ExerciseMenuItem @exercise={{exercise}} @selectExercise={{@selectExercise}} />
+    {{/each}}
+    <div class="has-text-centered m-t-md">
+      <button class="button is-small is-light is-outlined is-fullwidth" {{on "click" this.logout}} data-test-logout>Logout</button>
+    </div>
+  </div>
+  <figure class="image">
+    <img src="/images/fitbod-logo.png" alt="fitbod logo" />
+  </figure>
+</aside>
