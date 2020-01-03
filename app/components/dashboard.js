@@ -21,13 +21,14 @@ export default class Dashboard extends Component {
   }
 
   @action
-  async getSingleSets() {
-    this.singleSets = await this.workoutApi.getUserSingleSets()
+  async selectFirstExercise() {
+    this.selectExercise(this.args.exercises.firstObject)
   }
 
   @action
   async selectExercise(exercise) {
     this.selectedExercise = exercise
+    this.menuVisible = false
     this.chartData = exercise.dataForChart()
   }
 }

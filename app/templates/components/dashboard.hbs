@@ -1,4 +1,4 @@
-<div class="columns is-mobile" {{did-insert this.getSingleSets}}>
+<div class="columns is-mobile" {{did-insert this.selectFirstExercise}}>
   <nav class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
     <aside class="menu menu-exercise has-background-grey-darker is-fullheight">
       <div class="section">
@@ -41,7 +41,7 @@
           <span aria-hidden="true"></span>
         </a>
         <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-xs-mobile'}}">
-          {{if this.selectedExercise this.selectedExercise.name 'Select an Exercise on the Left'}}
+          {{this.selectedExercise.name}}
         </p>
       </div>
     </nav>
@@ -65,12 +65,10 @@
             </div>
           </div>
         </div>
-        <div>
-          {{#if this.chartData}}
-            <OneRepMaxChart @content={{this.chartData}} @title="1RM Daily Chart" />
-          {{/if}}
-        </div>
+        {{#if this.chartData}}
+          <OneRepMaxChart @content={{this.chartData}} @title="1RM Daily Chart" />
         {{/if}}
+      {{/if}}
     </div>
   </div>
 </div>

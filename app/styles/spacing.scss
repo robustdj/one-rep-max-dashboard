@@ -129,3 +129,10 @@ $positions: (
     }
   }
 }
+
+// TODO Augment above to make mobile friendly classes so that we don't have to do this
+@media only screen and (max-width: 576px) {
+  .p-xl {
+    padding: 2rem;
+  }
+}

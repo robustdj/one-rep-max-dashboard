@@ -27,6 +27,9 @@ html, body {
 
 .column-content {
   margin-left: -1.5rem;
+  max-width: none;
+  width: 100vh;
+
 
   .navbar-burger {
     position: absolute;
@@ -58,6 +61,10 @@ html, body {
   cursor: pointer;
 }
 
+.is-vcentered {
+  align-self: center;
+}
+
 .menu-exercise {
   display: flex;
   flex-direction: column;
@@ -80,5 +87,9 @@ html, body {
 @media only screen and (max-width: 576px) {
   .is-hidden-xs-mobile {
     display: none !important;
+  }
+
+  .column-content {
+    width: 100%;
   }
 }
