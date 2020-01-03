@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import fetch from 'fetch'
+import Exercise from '../models/exercise'
 
 const BASE_URL = 'http://localhost:3000/api/v1'
 
@@ -26,10 +27,22 @@ export default class WorkoutApiService extends Service {
     return user
   }
 
+  async getExercisesWithOneRepMax() {
+    let exercises = await this.getExercises()
+    let allSingleSets = await this.getUserSingleSets()
+
+    for (const exercise of exercises) {
+      let singleSets = allSingleSets.filterBy('exercise_id', exercise.id)
+      exercise.processData(singleSets)
+    }
+
+    return exercises
+  }
+
   async getExercises() {
     let response = await this._apiGet('exercises')
-    this.exercises = await response.json()
-    return this.exercises
+    let exercises = await response.json()
+    return exercises.map((exercise) => new Exercise(exercise))
   }
 
   async getUserWorkouts() {

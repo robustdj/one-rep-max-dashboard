@@ -5,6 +5,6 @@ export default class IndexRoute extends Route {
   @service workoutApi
 
   model() {
-    return this.workoutApi.getExercises()
+    return this.workoutApi.getExercisesWithOneRepMax()
   }
 }

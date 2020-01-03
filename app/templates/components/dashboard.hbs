@@ -16,7 +16,7 @@
             <div class="level-right">
               <div class="level-item has-text-white">
                 <div>
-                  <p class="is-size-7 has-text-weight-semibold">215.10</p>
+                  <p class="is-size-7 has-text-weight-semibold">{{exercise.highestOneRepMax}}</p>
                   <p class="is-size-7 has-text-grey-light has-text-right">lbs</p>
                 </div>
               </div>
@@ -41,29 +41,36 @@
           <span aria-hidden="true"></span>
         </a>
         <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-xs-mobile'}}">
-          {{if this.currentExercise this.currentExercise.name 'Select an Exercise on the Left'}}
+          {{if this.selectedExercise this.selectedExercise.name 'Select an Exercise on the Left'}}
         </p>
       </div>
     </nav>
     <div class="section has-background-black-ter is-fullheight p-xl">
-      <div class="level is-mobile p-l-md p-r-md">
-        <div class="level-left">
-          <div class="level-item">
-            <div class="content">
-              <h3 class="has-text-white has-text-weight-semibold is-marginless">One Rep Max</h3>
-              <p class="has-text-grey-light">Theoretical upper limit</p>
+      {{#if this.selectedExercise}}
+        <div class="level is-mobile p-l-md p-r-md">
+          <div class="level-left">
+            <div class="level-item">
+              <div class="content">
+                <h3 class="has-text-white has-text-weight-semibold is-marginless">One Rep Max</h3>
+                <p class="has-text-grey-light">Theoretical upper limit</p>
+              </div>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <div class="content">
+                <h3 class="has-text-white has-text-weight-semibold is-marginless">{{this.selectedExercise.highestOneRepMax}}</h3>
+                <p class="has-text-grey-light has-text-right">lbs</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="level-right">
-          <div class="level-item">
-            <div class="content">
-              <h3 class="has-text-white has-text-weight-semibold is-marginless">215.10</h3>
-              <p class="has-text-grey-light has-text-right">lbs</p>
-            </div>
-          </div>
+        <div>
+          {{#if this.chartData}}
+            <OneRepMaxChart @content={{this.chartData}} @title="1RM Daily Chart" />
+          {{/if}}
         </div>
-      </div>
+        {{/if}}
     </div>
   </div>
 </div>
