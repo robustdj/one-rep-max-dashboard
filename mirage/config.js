@@ -101,7 +101,26 @@ export default function() {
           "created_at": "2019-12-31T22:34:06.279Z",
           "updated_at": "2019-12-31T22:34:06.279Z",
           "exercise_id": 2
-      }
-    ]
+      },
+      {
+        "id": 1679,
+        "weight": 285.0,
+        "reps": 5,
+        "performed_at": "2018-06-19T11:05:51.727Z",
+        "workout_id": 43,
+        "created_at": "2019-12-31T22:34:06.273Z",
+        "updated_at": "2019-12-31T22:34:06.273Z",
+        "exercise_id": 3
+    },
+    {
+      "id": 1675,
+      "weight": 265.0,
+      "reps": 2,
+      "performed_at": "2018-06-19T10:58:51.727Z",
+      "workout_id": 43,
+      "created_at": "2019-12-31T22:34:06.265Z",
+      "updated_at": "2019-12-31T22:34:06.265Z",
+      "exercise_id": 1
+    }]
   });
 }

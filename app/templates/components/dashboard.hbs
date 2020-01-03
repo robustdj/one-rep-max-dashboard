@@ -4,7 +4,7 @@
       <div class="section">
         <p class="menu-label is-uppercase has-text-centered has-text-grey-light">Your Exercises</p>
         {{#each @exercises as |exercise|}}
-          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn this.selectExercise exercise)}} data-test-exercise-menu-item>
+          <div role="button" class="level is-mobile menu-exercise-item is-marginless is-clickable" {{on "click" (fn this.selectExercise exercise)}} data-test-exercise-menu-item={{exercise.name}}>
             <div class="level-left">
               <div class="level-item has-text-white">
                 <div>
@@ -16,7 +16,7 @@
             <div class="level-right">
               <div class="level-item has-text-white">
                 <div>
-                  <p class="is-size-7 has-text-weight-semibold">{{exercise.highestOneRepMax}}</p>
+                  <p class="is-size-7 has-text-weight-semibold" data-test-1rm-record>{{exercise.highestOneRepMax}}</p>
                   <p class="is-size-7 has-text-grey-light has-text-right">lbs</p>
                 </div>
               </div>
@@ -32,15 +32,15 @@
       </figure>
     </aside>
   </nav>
-  <div class="column column-content">
+  <div class="column column-content" data-test-main-content-area>
     <nav class="navbar has-background-primary" role="navigation" aria-label="main navigation">
       <div class="container is-flex-touch is-relative">
-        <a role="button" class="navbar-burger has-text-white {{if this.menuVisible 'is-active'}}" aria-label="menu" aria-expanded="false" {{on "click" this.toggleMenu}}>
+        <a role="button" class="navbar-burger has-text-white {{if this.menuVisible 'is-active'}}" aria-label="menu" aria-expanded="false" {{on "click" this.toggleMenu}} data-test-burger-menu>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-xs-mobile'}}">
+        <p class="navbar-item has-text-white has-text-weight-semibold {{if this.menuVisible 'is-hidden-xs-mobile'}}" data-test-top-nav-selected-exercise>
           {{this.selectedExercise.name}}
         </p>
       </div>
@@ -59,14 +59,14 @@
           <div class="level-right">
             <div class="level-item">
               <div class="content">
-                <h3 class="has-text-white has-text-weight-semibold is-marginless">{{this.selectedExercise.highestOneRepMax}}</h3>
+                <h3 class="has-text-white has-text-weight-semibold is-marginless" data-test-1rm-record>{{this.selectedExercise.highestOneRepMax}}</h3>
                 <p class="has-text-grey-light has-text-right">lbs</p>
               </div>
             </div>
           </div>
         </div>
         {{#if this.chartData}}
-          <OneRepMaxChart @content={{this.chartData}} @title="1RM Daily Chart" />
+          <OneRepMaxChart @content={{this.chartData}} @title="1RM Daily Chart" data-test-1rm-chart />
         {{/if}}
       {{/if}}
     </div>
