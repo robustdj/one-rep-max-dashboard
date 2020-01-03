@@ -27,6 +27,29 @@ const singleSets = [
   }
 ]
 
+const singleSetsWith37Reps = [
+  { // Infinity 1rm
+    "id": 1683,
+    "weight": 5,
+    "reps": 37,
+    "performed_at": "2018-06-19T11:13:51.727Z",
+    "workout_id": 43,
+    "created_at": "2019-12-31T22:34:06.281Z",
+    "updated_at": "2019-12-31T22:34:06.281Z",
+    "exercise_id": 2
+  },
+  { // 227.6 1rm
+      "id": 1682,
+      "weight": 215.0,
+      "reps": 3,
+      "performed_at": "2018-06-19T11:11:51.727Z",
+      "workout_id": 43,
+      "created_at": "2019-12-31T22:34:06.279Z",
+      "updated_at": "2019-12-31T22:34:06.279Z",
+      "exercise_id": 2
+  }
+]
+
 const toggleBurgerMenu = () => {
   return click('[data-test-burger-menu')
 }
@@ -59,4 +82,15 @@ module('Acceptance | dashboard', function(hooks) {
     assert.dom('[data-test-top-nav-selected-exercise]').hasText('Barbell Bench Press')
     assert.dom('[data-test-main-content-area] [data-test-1rm-record]').hasText('231.4')
   });
+
+  test(`1RMs don't count single sets with reps > 10`, async function(assert) {
+    this.server.get('/users/:user_id/workouts/:workout_id/single_sets.json', () => singleSetsWith37Reps)
+
+    await login(this)
+    await visit('/')
+
+    await toggleBurgerMenu()
+
+    assert.dom('[data-test-exercise-menu-item="Barbell Bench Press"] [data-test-1rm-record]').hasText('227.6', 'Non infinity 1rm should be shown')
+  })
 });

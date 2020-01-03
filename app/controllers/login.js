@@ -9,7 +9,9 @@ export default class LoginController extends Controller {
   @tracked password = ''
 
   @action
-  async authenticate() {
+  async authenticate(event) {
+    event.preventDefault()
+
     try {
       await this.session.authenticate('authenticator:basic', this.email, this.password);
     } catch(error) {

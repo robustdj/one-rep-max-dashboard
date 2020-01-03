@@ -1,6 +1,6 @@
 export default function() {
 
-  this.urlPrefix = 'http://localhost:3000'
+  this.urlPrefix = 'https://my-workout-turtle.herokuapp.com'
   this.namespace = '/api/v1'
 
   // These comments are here to help you get started. Feel free to delete them.

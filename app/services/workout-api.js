@@ -2,7 +2,7 @@ import Service from '@ember/service';
 import fetch from 'fetch'
 import Exercise from '../models/exercise'
 
-const BASE_URL = 'http://localhost:3000/api/v1'
+const BASE_URL = 'https://my-workout-turtle.herokuapp.com/api/v1'
 
 export default class WorkoutApiService extends Service {
   setEncodedCredentials(encodedCredentials) {

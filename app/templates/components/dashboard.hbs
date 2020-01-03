@@ -1,8 +1,8 @@
 <div class="columns is-mobile" {{did-insert this.selectFirstExercise}}>
-  <section class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
+  <div class="column column-menu is-narrow is-fullheight {{if this.menuVisible 'is-active'}}">
     <LeftNav @exercises={{@exercises}} @selectExercise={{this.selectExercise}} />
-  </section>
-  <section class="column column-content" data-test-main-content-area>
+  </div>
+  <div class="column column-content" data-test-main-content-area>
     <TopNav @menuVisible={{this.menuVisible}} @toggleMenu={{this.toggleMenu}} @selectedExercise={{this.selectedExercise}} />
 
     <div class="section has-background-black-ter is-fullheight p-xl">
@@ -14,5 +14,5 @@
         {{/if}}
       {{/if}}
     </div>
-  </section>
+  </div>
 </div>

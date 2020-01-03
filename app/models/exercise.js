@@ -54,6 +54,10 @@ export default class Exercise {
   _getMaxOneRepMaxPerDay() {
     let highestOneRepMax = 0
     let oneRepMaxPerDay = this.singleSets.reduce((dates, singleSet) => {
+      if (singleSet.reps > 10) {
+        return dates
+      }
+
       let date = moment(singleSet.performed_at).startOf('day').valueOf()
       let oneRM = this._brzycki(singleSet.weight, singleSet.reps)
 
@@ -70,7 +74,7 @@ export default class Exercise {
         dates[date] = oneRM
       }
 
-      return dates;
+      return dates
     }, {})
 
     return { oneRepMaxPerDay, highestOneRepMax }
