@@ -1,4 +1,4 @@
-import { authenticateSession, invalidateSession, currentSession } from 'ember-simple-auth/test-support';
+import { authenticateSession, invalidateSession } from 'ember-simple-auth/test-support';
 
 export async function login(context) {
   let currentUser = {

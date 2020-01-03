@@ -56,7 +56,7 @@ export default class WorkoutApiService extends Service {
     let singleSets = []
 
     for (const workout of workouts) {
-      console.log(`making API call to: users/${this.currentUser.id}/workouts/${workout.id}/single_sets`)
+      // console.log(`making API call to: users/${this.currentUser.id}/workouts/${workout.id}/single_sets`)
       let response = await this._apiGet(`users/${this.currentUser.id}/workouts/${workout.id}/single_sets`)
       let json = await response.json()
       singleSets.push(...json)
